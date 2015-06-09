@@ -64,9 +64,9 @@ def create_cache_key(klass, field=None, field_value=None):
 
     if field and field_value:
         if isinstance(klass, Manager):
-            key = key_model % (klass.model._meta.app_label, klass.model._meta.module_name, field, field_value)
+            key = key_model % (klass.model._meta.app_label, klass.model._meta.model_name, field, field_value)
         else:
-            key = key_model % (klass._meta.app_label, klass._meta.module_name, field, field_value)
+            key = key_model % (klass._meta.app_label, klass._meta.model_name, field, field_value)
 
     if not key:
         raise Exception('Cache key cannot be empty.')
